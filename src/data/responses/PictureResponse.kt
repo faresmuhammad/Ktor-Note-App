@@ -4,5 +4,5 @@ import java.net.URI
 
 data class PictureResponse(
     val isSuccessful: Boolean,
-    val pictures: List<ByteArray>?
+    val pictures: List<String>?
 )

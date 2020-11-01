@@ -90,7 +90,7 @@ fun Route.noteRoutes() {
                     call.respond(BadRequest)
                     return@post
                 }
-                if (addPictureToNote(request.noteId, request.pictures)) {
+                if (addPictureToNote(request.noteId, request.picture!!)) {
                     call.respond(OK, SimpleResponse(true, "Picture Add to note successfully"))
                 } else {
                     call.respond(BadRequest, SimpleResponse(false, "Can't add picture to note"))

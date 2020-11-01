@@ -11,5 +11,5 @@ data class Note(
     val color: String,
     @BsonId
     val id: String = ObjectId().toString(),
-    val pictures: List<ByteArray>? = null
+    val pictures: List<String>? = null
 )

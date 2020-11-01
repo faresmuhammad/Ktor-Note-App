@@ -73,8 +73,9 @@ suspend fun addOwnerToNote(noteId: String, email: String): Boolean {
     return notes.updateOneById(noteId, setValue(Note::owners, owners + email)).wasAcknowledged()
 }
 
-suspend fun addPictureToNote(noteId: String, pictures: List<ByteArray>): Boolean {
-    return notes.updateOneById(noteId, setValue(Note::pictures, pictures)).wasAcknowledged()
+suspend fun addPictureToNote(noteId: String, picture: String): Boolean {
+    val pictures = notes.findOneById(noteId)?.pictures ?: return false
+    return notes.updateOneById(noteId, setValue(Note::pictures, pictures + picture)).wasAcknowledged()
 }
 
 suspend fun getNoteById(noteId: String): Note? = notes.findOneById(noteId)
